@@ -1,0 +1,128 @@
+header{
+    height: 80px;
+
+    border-bottom: 1px solid #E6E8EC;
+
+    .header__logo{
+
+        gap: 10px;
+
+        .logo__text{
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 32px;
+
+            color: #23262F;
+        }
+    }
+
+    .header__wrapper{
+        align-items: center;
+
+        height: 100%;
+
+        .header__start{
+            flex:1 1 auto;
+            align-items: center;
+        
+        }
+    }
+
+    .header__nav{
+
+        li{
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+
+            color: #23262F;
+
+            cursor: pointer;
+        }
+
+        li:nth-child(2){
+            color: #777E91;
+        }
+    }
+
+    .header__notify{
+        position: relative;
+
+        cursor: pointer;
+
+        &::after{
+            position: absolute;
+            top: -12px;
+            right: -7px;
+
+            content: "";
+            display: block;
+            width: 12px;
+            height: 12px;
+
+            background: #45B36B;
+            border-radius: 50%;
+        }
+    }
+
+    .header__search{
+        position: relative;
+
+        margin-left: auto;
+
+        height: 40px;
+
+        border: 2px solid #E6E8EC;
+        border-radius: 8px;
+
+        input{
+            height: 100%;
+            border-radius: 8px;
+            padding-left: 16px;
+
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 20px;
+
+            color: #777E91;
+        }
+
+        .search__ic{
+            position: absolute;
+            top: 25%;
+            right: 13px;
+
+            cursor: pointer;
+        }
+    }
+
+    .header__buttons{
+
+        .but-upl{
+            width: 80px;
+            height: 40px;
+
+            background: #3772FF;
+            border-radius: 90px;
+
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+            color: #FCFCFD;
+        }
+
+        .but-cont{
+            width: 140px;
+            height: 40px;
+
+
+            border: 2px solid #E6E8EC;
+            border-radius: 90px;
+
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+            color: #23262F;
+        }
+    }
+}
