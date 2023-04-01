@@ -1,61 +1,78 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Poppins:ital,wght@0,600;0,700;1,400&display=swap");
 @import url("./styles/component/header.scss");
-
+@import url("./styles/component/homepage.scss");
 
 //Общие стили для страницы
 
-body{
-    background: #FCFCFD;
+body {
+  background: #fcfcfd;
 }
 
-.flex{
-    display: flex;
+.flex {
+  display: flex;
+}
+.justif-ss-betw{
+  justify-content: space-between;
 }
 
-.d-2{
-    display: none;
-
-    @media (max-width:1024px) {
-        display: block;
-    }
+.tex-cen {
+  text-align: center;
 }
 
-.d-2-none{
+.centr {
+  margin: 0 auto;
+}
+.d-2 {
+  display: none;
+
+  @media (max-width: 1024px) {
     display: block;
-
-    @media (max-width:1024px) {
-        display: none;
-    }
+  }
 }
 
-.d-3{
+.d-2-none {
+  display: block;
+
+  @media (max-width: 1024px) {
     display: none;
-
-    @media (max-width:678px) {
-        display: block;
-    }
+  }
 }
 
-.d-3-none{
+.d-3 {
+  display: none;
+
+  @media (max-width: 678px) {
     display: block;
-
-    @media (max-width:678px) {
-        display: none;
-    }
+  }
 }
 
-.container{
-    max-width: 1144px !important;
-    
+.d-3-none {
+  display: block;
+
+  @media (max-width: 678px) {
+    display: none;
+  }
 }
 
-.f-pop{
-    font-family: 'Poppins';
-}
-.f-sans{
-    font-family: 'DM Sans';
+.container {
+  max-width: 1184px !important;
 }
 
+.row > * {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.f-pop {
+  font-family: "Poppins";
+}
+.f-sans {
+  font-family: "DM Sans";
+}
 
 // Подключение стилей роутов
-

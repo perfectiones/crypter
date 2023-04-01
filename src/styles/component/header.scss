@@ -3,6 +3,10 @@ header{
 
     border-bottom: 1px solid #E6E8EC;
 
+    @media (max-width:678px) {
+        height: 104px;
+    }
+
     .header__logo{
 
         gap: 10px;
