@@ -6,6 +6,8 @@
 
 body {
   background: #fcfcfd;
+
+  counter-reset: my-sec-counter;
 }
 
 .flex {
@@ -13,6 +15,14 @@ body {
 }
 .justif-ss-betw{
   justify-content: space-between;
+}
+
+.justif-ss-end{
+  justify-content: end;
+}
+
+.justif-ss-cent{
+  justify-content: center;
 }
 
 .tex-cen {

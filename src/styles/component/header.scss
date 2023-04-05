@@ -41,13 +41,15 @@ header{
             font-size: 14px;
             line-height: 16px;
 
-            color: #23262F;
+            color: #777E91;
 
             cursor: pointer;
+
+            transition: all 0.7s;
         }
 
-        li:nth-child(2){
-            color: #777E91;
+        li:hover{
+            color: #23262F;
         }
     }
 
@@ -111,17 +113,26 @@ header{
 
     .header__buttons{
 
+        button{
+            transition: all 0.7s;
+        }
+
+        button:hover{
+            background: #3772FF;
+            color: #FCFCFD;
+        }
+
         .but-upl{
             width: 80px;
             height: 40px;
 
-            background: #3772FF;
+            border: 2px solid #E6E8EC;
             border-radius: 90px;
 
             font-weight: 700;
             font-size: 14px;
             line-height: 16px;
-            color: #FCFCFD;
+            color: #23262F;
         }
 
         .but-cont{
@@ -129,7 +140,6 @@ header{
 
             width: 140px;
             height: 40px;
-
 
             border: 2px solid #E6E8EC;
             border-radius: 90px;
