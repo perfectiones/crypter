@@ -3,6 +3,14 @@ import logo from "../img/logo.png";
 
 function Header() {
 
+  const [burger, setBurger] = useState(false);
+
+  const handleBurger = (event) => {
+    setBurger(current => !current);
+
+    event.currentTarget.classList.toggle("active");
+    
+  }
 
   return (
     <header>
@@ -72,7 +80,7 @@ function Header() {
           <button className="f-sans but-cont">Connect Wallet</button>
         </div>
 
-        <div className="header__burger d-3">
+        <div className="header__burger d-3" onClick={handleBurger}>
           <span></span>
           <span></span>
         </div>

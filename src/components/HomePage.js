@@ -10,7 +10,7 @@ import albumItem from "../../src/img/main/album-item.png";
 import albumItem2 from "../../src/img/main/album-item-2.png";
 import albumItem3 from "../../src/img/main/album-item-3.png";
 
-import { useState } from "react";
+import { useState, useRef, createRef, useEffect } from "react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -47,23 +47,34 @@ function HomePage() {
       creatorAvatar: avatar,
       creatorName: "Payton Harris",
       creatorCost: "2.456",
+      circleNum: "3"
     },
     {
       creatorAvatar: avatar2,
       creatorName: "Anita Bins",
       creatorCost: "2.456",
+      circleNum: "6"
     },
     {
       creatorAvatar: avatar,
       creatorName: "Joana Wuckert",
       creatorCost: "2.456",
+      circleNum: "2"
     },
     {
       creatorAvatar: avatar,
       creatorName: "Lorena Ledner",
       creatorCost: "2.456",
+      circleNum: "4"
     },
   ];
+
+  const minorImgRef = useRef([]);
+  minorImgRef.current = [];
+
+  //const minorImgRef = useRef(new Array(6).fill(createRef()));
+  const minorTitleRef = useRef(new Array(6).fill(createRef()));
+  //const minorTitleRef = useRef();
 
   const Completionist = () => <span>Auction END!</span>;
 
@@ -92,11 +103,28 @@ function HomePage() {
     }
   };
 
-  const [minorItemHov, setminorItemHov] = useState(false);
+  const [elRefs, setElRefs] = useState([]);
+  const [elRefs2, setElRefs2] = useState([]);
 
-  const handleMouseEnter = (event) => {};
+  const arrLength = minorItemList.length;
 
-  const handleMouseLeave = (event) => {};
+  useEffect(() => {
+    // add or remove refs
+    setElRefs((elRefs) =>
+      Array(arrLength)
+        .fill()
+        .map((_, i) => elRefs[i] || createRef()),
+    );
+  }, [arrLength]);
+
+  useEffect(() => {
+    // add or remove refs
+    setElRefs2((elRefs2) =>
+      Array(arrLength)
+        .fill()
+        .map((_, i) => elRefs2[i] || createRef()),
+    );
+  }, [arrLength]);
 
   return (
     <>
@@ -244,11 +272,24 @@ function HomePage() {
                   {minorItemList.map((el, i) => (
                     <li
                       className="minor__item flex justif-ss-end"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
+                      
                     >
-                      <div className="item__img">
-                        <img src={minorItemList[i].albumImg} alt="" />
+                      <div className="item__img"
+                        onMouseEnter={() => {
+                          elRefs[i].current.classList.add("active");
+
+                          elRefs2[i].current.classList.add("active");
+                        }}
+                        onMouseLeave={() => {
+                          elRefs[i].current.classList.remove("active");
+
+                          elRefs2[i].current.classList.remove("active");
+                        }}
+                        ref={elRefs[i]}
+                      >
+                        <img src={minorItemList[i].albumImg} 
+                          alt="" 
+                        />
                       </div>
 
                       <div className="item__text">
@@ -274,7 +315,10 @@ function HomePage() {
                           </div>
                         </div>
 
-                        <button className="f-sans">Place a bid</button>
+                        <button 
+                          className="f-sans"
+                          ref={elRefs2[i]}
+                        >Place a bid</button>
                       </div>
                     </li>
                   ))}
@@ -287,20 +331,30 @@ function HomePage() {
                 <ul>
                   {creatorList.map((el, i) => (
                     <li className="flex">
-                    <div className="creator__avatar">
-                      <img src={creatorList[i].creatorAvatar} alt="" className="avatar" />
-                    </div>
-
-                    <div className="creator__text">
-                      <div className="name f-pop">
-                        <p>{creatorList[i].creatorName}</p>
+                      <div className="creator__avatar">
+                        <p className="circle f-pop">
+                          {creatorList[i].circleNum}
+                        </p>
+                        <img
+                          src={creatorList[i].creatorAvatar}
+                          alt=""
+                          className="avatar"
+                        />
                       </div>
 
-                      <div className="bid f-pop">
-                        <span className="cost">{creatorList[i].creatorCost}</span> ETH
+                      <div className="creator__text">
+                        <div className="name f-pop">
+                          <p>{creatorList[i].creatorName}</p>
+                        </div>
+
+                        <div className="bid f-pop">
+                          <span className="cost">
+                            {creatorList[i].creatorCost}
+                          </span>
+                          ETH
+                        </div>
                       </div>
-                    </div>
-                  </li>
+                    </li>
                   ))}
                 </ul>
                 <button className="from-creator__button flex f-sans">
