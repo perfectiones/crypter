@@ -1,10 +1,290 @@
+footer {
+  border-top: 1px solid #e6e8ec;
 
-footer{
+  padding: 80px 0 32px;
+
+  @media (max-width: 678px) {
+    padding: 64px 0 48px;
+  }
+
+  .footer__logo {
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 32px;
+  }
+
+  .footer__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #23262f;
+
+    padding-bottom: 32px;
+    padding-right: 40%;
+
+    border-bottom: 1px solid #e6e8ec;
+  }
+
+  .footer__collapsible {
+    padding: 32px 0;
+
+    border-bottom: 1px solid #e6e8ec;
+
+    .Collapsible:nth-child(1) {
+      padding-bottom: 32px;
+
+      border-bottom: 1px solid #e6e8ec;
+    }
+
+    .Collapsible:nth-child(2) {
+      margin-top: 38px;
+    }
+
+    .Collapsible {
+        position: relative;
+
+        &::after{
+            position: absolute;
+            top: 0;
+            right: 0;
+            content: url(../../img/accordion-arrow.svg);
+
+            transform: rotate(180deg);
+        }
+
+      .Collapsible__trigger {
+        display: flex;
+        align-items: center;
+
+        font-family: "Poppins";
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 12px;
+
+        text-transform: uppercase;
+
+        color: #23262f;
+      }
+      .Collapsible__contentInner {
+        display: flex;
+        flex-direction: column;
+
+        gap: 24px;
+
+        padding-top: 32px;
+
+        a {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 16px;
+
+          color: #777e91;
+        }
+      }
+    }
+  }
+
+  .footer__bottom {
+    .title {
+      margin: 32px 0 40px;
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+
+      color: #23262f;
+    }
+
+    .text {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      /* or 171% */
+
+      /* Neutrals/2 */
+
+      color: #23262f;
+
+      margin-bottom: 24px;
+    }
+
+    .mail {
+      position: relative;
+
+      input {
+        padding: 14px 58px 14px 16px;
+
+        width: 100%;
+        height: 48px;
+
+        border-radius: 90px;
+        border: 2px solid #e6e8ec;
+
+        font-family: "Poppins";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+
+        color: #777e91;
+
+        &::placeholder {
+          font-family: "Poppins";
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 24px;
+
+          color: #777e91;
+        }
+      }
+
+      .input__svg {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+
+        background-color: #3772FF;
+      }
+    }
+  }
+
+  .footer__copyright{
+    margin-top: 48px;
+
     border-top: 1px solid #E6E8EC;
 
-    padding: 80px 0 32px;
+    p{
+        text-align: center;
 
-    @media (max-width:678px) {
-       padding: 64px 0 48px; 
+        margin-top: 24px;
+
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+
+        color: #777E91;
     }
+  }
+
+  .dec{
+    .footer__col{
+
+        .col__title{
+            margin-bottom: 40px;
+
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+
+            color: #23262F;
+        }
+
+        .title__links{
+            display: flex;
+            flex-direction: column; 
+            gap: 24px;
+
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+
+            color: #777E91;
+        }
+        
+    }
+
+    .col-send{
+      @media (max-width:768px) {
+        margin-top: 30px;
+      }
+        .title{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+
+            color: #23262F;
+
+            margin-bottom: 40px;
+        }
+
+        .text{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+
+            color: #23262F;
+        }
+
+        .mail{
+            margin-top: 24px;
+
+            form{
+                position: relative;
+
+                button{
+                    top: 8px;
+                    right: 8px;
+
+                    position: absolute;
+
+                    width: 32px;
+                    height: 32px;
+
+                    border-radius: 50%;
+                    background: #3772FF;
+                }
+                input{
+                    
+
+                    width: 100%;
+                    height: 48px;
+
+                    border: 2px solid #E6E8EC;
+                    border-radius: 90px;
+
+                    padding: 14px 58px 14px 16px;
+                }
+            }
+        }
+    }
+
+    .copyright{
+      border-top: 1px solid #E6E8EC;
+      padding: 32px 0 0;
+
+      p{
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+
+        color: #777E91;
+      }
+
+      .ckie{
+        p{
+          color: #23262F;
+        }
+
+        button{
+          margin-left: 15px;
+
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 20px;
+
+          color: #3772FF;
+        }
+      }
+        
+    }
+  }
 }

@@ -17,7 +17,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-function HomePage() {
+function HomePage(props) {
   const minorItemList = [
     {
       img: avatar,
@@ -47,34 +47,30 @@ function HomePage() {
       creatorAvatar: avatar,
       creatorName: "Payton Harris",
       creatorCost: "2.456",
-      circleNum: "3"
+      circleNum: "3",
     },
     {
       creatorAvatar: avatar2,
       creatorName: "Anita Bins",
       creatorCost: "2.456",
-      circleNum: "6"
+      circleNum: "6",
     },
     {
       creatorAvatar: avatar,
       creatorName: "Joana Wuckert",
       creatorCost: "2.456",
-      circleNum: "2"
+      circleNum: "2",
     },
     {
       creatorAvatar: avatar,
       creatorName: "Lorena Ledner",
       creatorCost: "2.456",
-      circleNum: "4"
+      circleNum: "4",
     },
   ];
 
   const minorImgRef = useRef([]);
   minorImgRef.current = [];
-
-  //const minorImgRef = useRef(new Array(6).fill(createRef()));
-  const minorTitleRef = useRef(new Array(6).fill(createRef()));
-  //const minorTitleRef = useRef();
 
   const Completionist = () => <span>Auction END!</span>;
 
@@ -113,7 +109,7 @@ function HomePage() {
     setElRefs((elRefs) =>
       Array(arrLength)
         .fill()
-        .map((_, i) => elRefs[i] || createRef()),
+        .map((_, i) => elRefs[i] || createRef())
     );
   }, [arrLength]);
 
@@ -122,9 +118,288 @@ function HomePage() {
     setElRefs2((elRefs2) =>
       Array(arrLength)
         .fill()
-        .map((_, i) => elRefs2[i] || createRef()),
+        .map((_, i) => elRefs2[i] || createRef())
     );
   }, [arrLength]);
+
+  let swiperAlbumMob = null;
+
+  let swiperAlbumDesc = null;
+
+  if (props.width < props.breakpoint2) {
+    swiperAlbumMob = (
+      <>
+        <Swiper
+          modules={[Navigation, Pagination, A11y]}
+          loop={true}
+          className="main__album-swiper col-xl-4 col-lg-4 col-12"
+        >
+          <SwiperSlide>
+            <div className="album__slide">
+              <div className="slide__img">
+                <img src={albumItem} alt="" />
+              </div>
+
+              <div className="slide__footer flex">
+                <div className="avatar">
+                  <img src={avatar} alt="" className="avatar" />
+                </div>
+
+                <div className="footer__text">
+                  <div className="title f-pop">
+                    <p>The future of ETH®</p>
+                  </div>
+                  <div className="sutitle f-pop">
+                    <p>18 in stock</p>
+                  </div>
+                </div>
+
+                <div className="footer__bid">
+                  <div className="bid__status f-pop">
+                    <p>Highest bid</p>
+                  </div>
+
+                  <div className="bid__cost f-pop">
+                    <p>1.125 ETH</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="album__slide">
+              <div className="slide__img">
+                <img src={albumItem} alt="" />
+              </div>
+
+              <div className="slide__footer flex">
+                <div className="avatar">
+                  <img src={avatar} alt="" className="avatar" />
+                </div>
+
+                <div className="footer__text">
+                  <div className="title f-pop">
+                    <p>ETH never die</p>
+                  </div>
+                  <div className="sutitle f-pop">
+                    <p>18 in stock</p>
+                  </div>
+                </div>
+
+                <div className="footer__bid">
+                  <div className="bid__status f-pop">
+                    <p>Highest bid</p>
+                  </div>
+
+                  <div className="bid__cost f-pop">
+                    <p>1.125 ETH</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="album__slide">
+              <div className="slide__img">
+                <img src={albumItem} alt="" />
+              </div>
+
+              <div className="slide__footer flex">
+                <div className="avatar">
+                  <img src={avatar} alt="" className="avatar" />
+                </div>
+
+                <div className="footer__text">
+                  <div className="title f-pop">
+                    <p>Future coming soon</p>
+                  </div>
+                  <div className="sutitle f-pop">
+                    <p>18 in stock</p>
+                  </div>
+                </div>
+
+                <div className="footer__bid">
+                  <div className="bid__status f-pop">
+                    <p>Highest bid</p>
+                  </div>
+
+                  <div className="bid__cost f-pop">
+                    <p>0.27 ETH</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="album__slide">
+              <div className="slide__img">
+                <img src={albumItem} alt="" />
+              </div>
+
+              <div className="slide__footer flex">
+                <div className="avatar">
+                  <img src={avatar} alt="" className="avatar" />
+                </div>
+
+                <div className="footer__text">
+                  <div className="title f-pop">
+                    <p>Elon Musk silver coin 3d print</p>
+                  </div>
+                  <div className="sutitle f-pop">
+                    <p>18 in stock</p>
+                  </div>
+                </div>
+
+                <div className="footer__bid">
+                  <div className="bid__status f-pop">
+                    <p>Highest bid</p>
+                  </div>
+
+                  <div className="bid__cost f-pop">
+                    <p>0.27 ETH</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </>
+    );
+  } else {
+    swiperAlbumDesc = (
+      <div className="main__album">
+        <div className="row">
+          <div className="album__major col-xl-5 col-lg-6 col-12 ">
+            <div className="major__img">
+              <img src={albumItem} alt="" />
+            </div>
+            <div className="major__footer flex">
+              <div className="footer__avatar">
+                <img src={avatar} alt="" className="avatar" />
+              </div>
+
+              <div className="footer__text">
+                <p className="title f-pop">The future of ETH®</p>
+                <p className="subtitle f-pop">18 in stock</p>
+              </div>
+
+              <div className="footer__bid">
+                <div className="bid__status f-pop">
+                  <p>Highest bid</p>
+                </div>
+
+                <div className="bid__cost f-pop">
+                  <p>1.125 ETH</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="album__minor col-xl-4 col-lg-6 col-12 ">
+            <ul>
+              {minorItemList.map((el, i) => (
+                <li className="minor__item flex justif-ss-end">
+                  <div
+                    className="item__img"
+                    onMouseEnter={() => {
+                      elRefs[i].current.classList.add("active");
+
+                      elRefs2[i].current.classList.add("active");
+                    }}
+                    onMouseLeave={() => {
+                      elRefs[i].current.classList.remove("active");
+
+                      elRefs2[i].current.classList.remove("active");
+                    }}
+                    ref={elRefs[i]}
+                  >
+                    <img src={minorItemList[i].albumImg} alt="" />
+                  </div>
+
+                  <div className="item__text">
+                    <div className="name f-pop">
+                      <p>{minorItemList[i].title}</p>
+                    </div>
+
+                    <div className="bids-info flex">
+                      <div className="bid__leader">
+                        <img
+                          src={minorItemList[i].img}
+                          alt=""
+                          className="avatar"
+                        />
+                      </div>
+
+                      <div className="bid__cost">
+                        <p>{minorItemList[i].cost}</p>
+                      </div>
+
+                      <div className="bid__counter">
+                        <p>{minorItemList[i].counter}</p>
+                      </div>
+                    </div>
+
+                    <button className="f-sans" ref={elRefs2[i]}>
+                      Place a bid
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="from-creator col-xl-3 col-lg-12 col-12 ">
+            <div className="creator__title f-pop">
+              <p>Latest upload from creators 🔥</p>
+            </div>
+            <ul>
+              {creatorList.map((el, i) => (
+                <li className="flex">
+                  <div className="creator__avatar">
+                    <p className="circle f-pop">{creatorList[i].circleNum}</p>
+                    <img
+                      src={creatorList[i].creatorAvatar}
+                      alt=""
+                      className="avatar"
+                    />
+                  </div>
+
+                  <div className="creator__text">
+                    <div className="name f-pop">
+                      <p>{creatorList[i].creatorName}</p>
+                    </div>
+
+                    <div className="bid f-pop">
+                      <span className="cost">{creatorList[i].creatorCost}</span>
+                      ETH
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <button className="from-creator__button flex f-sans">
+              Discover more
+              <svg
+                width="10"
+                height="7"
+                viewBox="0 0 10 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6.39413 0.843309C6.66467 0.593571 7.08644 0.61044 7.33618 0.880985L9.49003 3.21429C9.72576 3.46967 9.72576 3.86329 9.49003 4.11867L7.33619 6.45203C7.08645 6.72257 6.66468 6.73945 6.39413 6.48971C6.12358 6.23998 6.10671 5.81821 6.35644 5.54766L7.47752 4.33315L1.00016 4.33315C0.631972 4.33315 0.333496 4.03467 0.333496 3.66648C0.333496 3.29829 0.631972 2.99982 1.00016 2.99982L7.47749 2.99982L6.35645 1.78536C6.10671 1.51482 6.12358 1.09305 6.39413 0.843309Z"
+                  fill="#23262F"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -240,143 +515,8 @@ function HomePage() {
             </Swiper>
           </div>
 
-          <div className="main__album">
-            <div className="row">
-              <div className="album__major col-xl-5 col-lg-6 col-12 ">
-                <div className="major__img">
-                  <img src={albumItem} alt="" />
-                </div>
-                <div className="major__footer flex">
-                  <div className="footer__avatar">
-                    <img src={avatar} alt="" className="avatar" />
-                  </div>
-
-                  <div className="footer__text">
-                    <p className="title f-pop">The future of ETH®</p>
-                    <p className="subtitle f-pop">18 in stock</p>
-                  </div>
-
-                  <div className="footer__bid">
-                    <div className="bid__status f-pop">
-                      <p>Highest bid</p>
-                    </div>
-
-                    <div className="bid__cost f-pop">
-                      <p>1.125 ETH</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="album__minor col-xl-4 col-lg-6 col-12 ">
-                <ul>
-                  {minorItemList.map((el, i) => (
-                    <li
-                      className="minor__item flex justif-ss-end"
-                      
-                    >
-                      <div className="item__img"
-                        onMouseEnter={() => {
-                          elRefs[i].current.classList.add("active");
-
-                          elRefs2[i].current.classList.add("active");
-                        }}
-                        onMouseLeave={() => {
-                          elRefs[i].current.classList.remove("active");
-
-                          elRefs2[i].current.classList.remove("active");
-                        }}
-                        ref={elRefs[i]}
-                      >
-                        <img src={minorItemList[i].albumImg} 
-                          alt="" 
-                        />
-                      </div>
-
-                      <div className="item__text">
-                        <div className="name f-pop">
-                          <p>{minorItemList[i].title}</p>
-                        </div>
-
-                        <div className="bids-info flex">
-                          <div className="bid__leader">
-                            <img
-                              src={minorItemList[i].img}
-                              alt=""
-                              className="avatar"
-                            />
-                          </div>
-
-                          <div className="bid__cost">
-                            <p>{minorItemList[i].cost}</p>
-                          </div>
-
-                          <div className="bid__counter">
-                            <p>{minorItemList[i].counter}</p>
-                          </div>
-                        </div>
-
-                        <button 
-                          className="f-sans"
-                          ref={elRefs2[i]}
-                        >Place a bid</button>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="from-creator col-xl-3 col-lg-12 col-12 ">
-                <div className="creator__title f-pop">
-                  <p>Latest upload from creators 🔥</p>
-                </div>
-                <ul>
-                  {creatorList.map((el, i) => (
-                    <li className="flex">
-                      <div className="creator__avatar">
-                        <p className="circle f-pop">
-                          {creatorList[i].circleNum}
-                        </p>
-                        <img
-                          src={creatorList[i].creatorAvatar}
-                          alt=""
-                          className="avatar"
-                        />
-                      </div>
-
-                      <div className="creator__text">
-                        <div className="name f-pop">
-                          <p>{creatorList[i].creatorName}</p>
-                        </div>
-
-                        <div className="bid f-pop">
-                          <span className="cost">
-                            {creatorList[i].creatorCost}
-                          </span>
-                          ETH
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <button className="from-creator__button flex f-sans">
-                  Discover more
-                  <svg
-                    width="10"
-                    height="7"
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M6.39413 0.843309C6.66467 0.593571 7.08644 0.61044 7.33618 0.880985L9.49003 3.21429C9.72576 3.46967 9.72576 3.86329 9.49003 4.11867L7.33619 6.45203C7.08645 6.72257 6.66468 6.73945 6.39413 6.48971C6.12358 6.23998 6.10671 5.81821 6.35644 5.54766L7.47752 4.33315L1.00016 4.33315C0.631972 4.33315 0.333496 4.03467 0.333496 3.66648C0.333496 3.29829 0.631972 2.99982 1.00016 2.99982L7.47749 2.99982L6.35645 1.78536C6.10671 1.51482 6.12358 1.09305 6.39413 0.843309Z"
-                      fill="#23262F"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
+          {swiperAlbumMob}
+          {swiperAlbumDesc}
         </div>
       </main>
     </>
