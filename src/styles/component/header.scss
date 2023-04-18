@@ -118,8 +118,12 @@ header{
         }
 
         button:hover{
-            background: #3772FF;
+            background: #3772FF !important;
             color: #FCFCFD;
+            
+            p{
+                color: #FCFCFD !important;
+            }
         }
 
         .but-upl{

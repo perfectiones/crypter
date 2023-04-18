@@ -21,7 +21,7 @@ if (props.width < props.breakpoint) {
             </div>
 
             <div className="footer__collapsible">
-              <Collapsible trigger="Crypter.">
+              <Collapsible trigger="Crypter." openedClassName="opened">
                 <a href="/" className="f-sans">
                   Connect wallet
                 </a>
@@ -33,7 +33,7 @@ if (props.width < props.breakpoint) {
                 </a>
               </Collapsible>
 
-              <Collapsible trigger="info">
+              <Collapsible trigger="info" openedClassName="opened">
                 <a href="/" className="f-sans">
                   Download
                 </a>

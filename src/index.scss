@@ -3,12 +3,20 @@
 @import url("./styles/component/homepage.scss");
 @import url("./styles/component/footer.scss");
 
+//UploadItem 
+
+@import url('./styles/component/uploadItem.scss');
+
 //Общие стили для страницы
 
 body {
-  background: #fcfcfd;
+  background: #FCFCFD;
 
   counter-reset: my-sec-counter;
+}
+
+.align-cent{
+  align-items: center;
 }
 
 .flex {
@@ -58,7 +66,6 @@ body {
 }
 
 .d-3-none {
-  display: block;
 
   @media (max-width: 678px) {
     display: none;

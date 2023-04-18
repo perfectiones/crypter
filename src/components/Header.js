@@ -1,29 +1,26 @@
-import { useState } from "react";
 import logo from "../img/logo.png";
+import { Link } from "react-router-dom";
+
+import { useLocation } from "react-router-dom";
+
 
 function Header() {
 
-  const [burger, setBurger] = useState(false);
-
-  const handleBurger = (event) => {
-    setBurger(current => !current);
-
-    event.currentTarget.classList.toggle("active");
-    
-  }
+  const { pathname } = useLocation();
 
   return (
     <header>
-      <div className="header__wrapper container flex">
+      <div className="header__wrapper container flex" >
         <div className="header__start flex">
-          <a href="/">
+          <Link to="/">
             <div className="header__logo flex">
               <img src={logo} alt="" />
               <div className="logo__text">
                 <p className="f-pop">crypter</p>
               </div>
             </div>
-          </a>
+          </Link>
+            
 
           <nav className="header__nav f-sans d-2-none">
             <ul className="flex">
@@ -76,11 +73,13 @@ function Header() {
           </svg>
         </div>
         <div className="header__buttons d-3-none">
-          <button className="f-sans but-upl">Upload</button>
+          <button className="f-sans but-upl" style={{ backgroundColor: pathname === '/upload' ? '#3772FF' : '#FCFCFD' }}>
+            <Link to='upload'><p style={{ color: pathname === '/upload' ? '#FCFCFD' : '#23262F' }}>Upload</p></Link>
+            </button>
           <button className="f-sans but-cont">Connect Wallet</button>
         </div>
 
-        <div className="header__burger d-3" onClick={handleBurger}>
+        <div className="header__burger d-3">
           <span></span>
           <span></span>
         </div>

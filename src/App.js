@@ -5,6 +5,7 @@ import "./styles/null.css";
 
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
+import UploadItem from "./components/UploadItem";
 import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 
@@ -47,6 +48,17 @@ function App() {
             />
           }
         />
+        <Route
+          path="/upload"
+          element={
+            <UploadItem 
+              width={width}
+              breakpoint={breakpoint}
+              breakpoint2={breakpoint2}
+            />
+          }
+        />
+
       </Routes>
 
       <Footer
