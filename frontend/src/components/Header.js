@@ -2,11 +2,26 @@ import logo from "../img/logo.png";
 import { Link } from "react-router-dom";
 
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 
-function Header() {
+function Header(props) {
 
   const { pathname } = useLocation();
+
+  const [state, setState] = useState({
+    burger: false,
+  })
+
+  const{
+    burger
+  } = state
+
+  const handleBurger = (e) => {
+    setState({...state, burger: !state.burger});
+    
+    props.bodyLock();
+  }
 
   return (
     <header>
@@ -73,18 +88,28 @@ function Header() {
           </svg>
         </div>
         <div className="header__buttons d-3-none">
-          <button className="f-sans but-upl" style={{ backgroundColor: pathname === '/upload' ? '#3772FF' : '#FCFCFD' }}>
-            <Link to='upload'><p style={{ color: pathname === '/upload' ? '#FCFCFD' : '#23262F' }}>Upload</p></Link>
+          <button className="f-sans but-upl" style={{ backgroundColor: pathname === ('/upload') ? '#3772FF' : '#FCFCFD' }}>
+            <Link to='upload'><p style={{ color: pathname === ('/upload') ? '#FCFCFD' : '#23262F' }}>Upload</p></Link>
             </button>
           <button className="f-sans but-cont">Connect Wallet</button>
         </div>
 
-        <div className="header__burger d-3">
+        <div className= {!burger ? 'header__burger d-3' : 'header__burger d-3 open'}
+          onClick={handleBurger}
+        >
           <span></span>
           <span></span>
         </div>
+
+        <div className="header__mob d-3"
+          style={!burger ? {left: "100%"} : {left: "0"}}
+        >
+          
+        </div>
       </div>
+
     </header>
+    
   );
 }
 

@@ -623,7 +623,7 @@ function HomePage(props) {
                               </div>
 
                               <div className="name f-pop">
-                                <p>Enrico Cole</p>
+                                <p>Don Digidon</p>
                               </div>
                             </div>
                           </div>
@@ -662,10 +662,10 @@ function HomePage(props) {
                               <p>Current Bid</p>
                             </div>
                             <div className="bet__price f-sans">
-                              <p>1.00 ETH</p>
+                              <p>1.30 ETH</p>
                             </div>
                             <div className="bet__price-trans f-pop">
-                              <p>$3,618.36</p>
+                              <p>$1,618.36</p>
                             </div>
                             <div className="bet__auction">
                               <div className="auction__title f-pop">
@@ -673,7 +673,7 @@ function HomePage(props) {
                               </div>
                               <div className="auction__timer">
                                 <Countdown
-                                  date={Date.now() + 69859000}
+                                  date={Date.now() + 3859000}
                                   renderer={renderer}
                                 />
                               </div>
@@ -747,7 +747,7 @@ function HomePage(props) {
                               <p>Current Bid</p>
                             </div>
                             <div className="bet__price f-sans">
-                              <p>1.00 ETH</p>
+                              <p>2.00 ETH</p>
                             </div>
                             <div className="bet__price-trans f-pop">
                               <p>$3,618.36</p>
@@ -758,7 +758,7 @@ function HomePage(props) {
                               </div>
                               <div className="auction__timer">
                                 <Countdown
-                                  date={Date.now() + 69859000}
+                                  date={Date.now() + 859000}
                                   renderer={renderer}
                                 />
                               </div>

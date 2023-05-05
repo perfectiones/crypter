@@ -6,14 +6,20 @@ import "./styles/null.css";
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import UploadItem from "./components/UploadItem";
+import CreateSingleColl from "./components/CreateSingleColl";
 import Footer from "./components/Footer";
+
 import { Route, Routes } from "react-router-dom";
 
 import { useState } from "react";
 import { useEffect } from "react";
 
+import store from "./redux/store";
+import SandBox from "./components/SandBox";
+
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
+
   const breakpoint = 679;
   const breakpoint2 = 992;
 
@@ -25,6 +31,10 @@ function App() {
     };
   }, []);
 
+  const bodyLock = () => {
+    document.body.classList.toggle('lock');
+  }
+
   let footerContentMob = null;
   let swiperAlbumMob = null;
 
@@ -33,7 +43,9 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header 
+        bodyLock={bodyLock}
+      />
 
       <Routes>
         <Route
@@ -58,7 +70,28 @@ function App() {
             />
           }
         />
+        <Route
+          path="/upload/create-single"
+          element={
+            <CreateSingleColl 
+              width={width}
+              breakpoint={breakpoint}
+              breakpoint2={breakpoint2}
+              store={store}
+              bodyLock={bodyLock}
+            />
+          }
+        />
 
+        <Route
+          path="/sandbox"
+          element={
+            <SandBox 
+            />
+          }
+        />    
+
+      
       </Routes>
 
       <Footer

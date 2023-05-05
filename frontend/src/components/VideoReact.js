@@ -22,6 +22,7 @@ function VideoReact() {
     const handleVolume = (e) => {
         setState({...state, volume: e.target.value})
     }
+    
     return(
         <>
         <div className="video__wrapper">

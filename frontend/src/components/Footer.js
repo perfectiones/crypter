@@ -97,7 +97,7 @@ if (props.width < props.breakpoint) {
   footerContentDec = (
     <>
       <div className="dec">
-        <div className="container">
+        <div className="container" style={{marginBottom: '24px'}}>
           <div className="row">
             <div className="col-xl-4 col-lg-3 col-md-3 col-12">
               <div className="footer__logo flex">

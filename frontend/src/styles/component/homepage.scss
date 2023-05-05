@@ -167,7 +167,9 @@
 
   .main__lot {
     margin-top: calc(40px + (98 - 40) * ((100vw - 320px) / (1144 - 320)));
-
+    @media (max-width:992px) {
+      gap: 32px;
+    }
     .lot__video {
       border-radius: 16px;
       overflow: hidden;
@@ -627,6 +629,8 @@
 
       @media (max-width: 1199px) {
         padding-left: 0 !important;
+
+        margin-top: 32px;
       }
       .creator__title {
         font-weight: 600;

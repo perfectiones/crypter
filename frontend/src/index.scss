@@ -7,12 +7,24 @@
 
 @import url('./styles/component/uploadItem.scss');
 
+//CreateSingleColl
+
+@import url('./styles/component/createSingleColl.scss');
+
 //Общие стили для страницы
 
 body {
   background: #FCFCFD;
 
   counter-reset: my-sec-counter;
+
+  &.lock{
+    overflow: hidden;
+  }
+}
+
+#root{
+  overflow-x: hidden;
 }
 
 .align-cent{
