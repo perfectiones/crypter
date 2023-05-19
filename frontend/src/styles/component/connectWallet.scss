@@ -1,0 +1,127 @@
+.wallet-wrapper{
+
+    .wallet__title{
+        gap: 16px;
+
+        margin-top: calc(32px + (65 - 32) * ((100vw - 320px) / (1144 - 320)));
+        margin-bottom: 122px;
+        @media (max-width:678px) {
+            margin-bottom: 90px;
+
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 56px;
+
+        color: #23262F;
+    }
+
+    .wallet__body{
+        display: flex;
+        justify-content: space-between;
+
+        margin-bottom: calc(64px + (110 - 64) * ((100vw - 320px) / (1144 - 320)));
+
+        @media (max-width:678px) {
+            flex-direction: column;
+
+            gap: 44px;
+        }
+    }
+
+    .wallet__method{
+
+        .method__list{
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+
+            .method__item{
+                gap: 32px;
+
+                @media (max-width:678px) {
+                    gap: 24px;
+
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+                &:nth-child(1){
+                    .item__circle{
+                       background: #9757D7; 
+                    }
+                    
+                }
+
+                &:nth-child(2){
+                    .item__circle{
+                        background: #3772FF;
+                    }
+                    
+                }
+
+                &:nth-child(3){
+                    .item__circle{
+                        background: #45B36B;
+                    }
+                    
+                }
+
+                &:nth-child(4){
+                    .item__circle{
+                        background: #EF466F;
+                    }
+                    
+                }
+                .item__circle{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    border-radius: 50%;
+
+                    width: 64px;
+                    height: 64px;
+
+                }
+
+                .item__text{
+                    font-family: 'Poppins';
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 32px;
+                    color: #23262F;
+                }
+            }
+        }
+    }
+
+    .wallet__img{
+
+        padding: 90px 0px 70px 50px;
+
+        @media (max-width:678px) {
+            padding: 25px 0px 20px 50px;
+            width: 100%;
+        }
+
+        background: #2E5144;
+        border-radius: 24px;
+
+        img{
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+
+            @media (max-width:678px) {
+                margin-left: auto;
+            }
+        }
+    }
+}

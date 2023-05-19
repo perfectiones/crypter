@@ -8,6 +8,8 @@ import HomePage from "./components/HomePage";
 import UploadItem from "./components/UploadItem";
 import CreateSingleColl from "./components/CreateSingleColl";
 import Footer from "./components/Footer";
+import ConnectWallet from "./components/сonnectWallet";
+import Faq from './components/Faq';
 
 import { Route, Routes } from "react-router-dom";
 
@@ -80,6 +82,20 @@ function App() {
               store={store}
               bodyLock={bodyLock}
             />
+          }
+        />
+
+        <Route
+          path="/connect-wallet"
+          element={
+            <ConnectWallet/>
+          }
+        />
+
+        <Route
+          path="/faq"
+          element={
+            <Faq/>
           }
         />
 

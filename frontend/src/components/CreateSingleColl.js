@@ -20,8 +20,14 @@ function CreateSingleColl(props) {
     optionRoyalty: 10,
     previewImg: null,
     modalOpen: false,
-    itemName: ' '
+    itemName: ' ',
+    collectionModal: false
   });
+
+  function handlerModalCollection() {
+    setState({ ...state, collectionModal: !state.collectionModal });
+    props.bodyLock()
+  }
 
   function handlerModal() {
 
@@ -60,7 +66,7 @@ function CreateSingleColl(props) {
     console.log(e);
   };
 
-  const { putOnSale, instantSale, unlockOnce, previewImg, optionRoyalty, modalOpen,itemName } = state;
+  const { putOnSale, instantSale, unlockOnce, previewImg, optionRoyalty, modalOpen, itemName, collectionModal } = state;
 
   return (
     <div className="container cr-sing-coll__page">
@@ -95,6 +101,8 @@ function CreateSingleColl(props) {
             bodyLock={props.bodyLock}
             modalOpen={modalOpen}
             handlerItemName={handlerItemName}
+            handlerModalCollection={handlerModalCollection}
+            collectionModal={collectionModal}
           />
         </div>
         <Preview 

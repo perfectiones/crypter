@@ -5,6 +5,10 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
 
+// Тут массив ссылок, где меняется цвет
+const uploadLiPath = ['/upload', '/connect-wallet', '/upload/create-single', '/faq'];
+
+
 function Header(props) {
 
   const { pathname } = useLocation();
@@ -88,10 +92,12 @@ function Header(props) {
           </svg>
         </div>
         <div className="header__buttons d-3-none">
-          <button className="f-sans but-upl" style={{ backgroundColor: pathname === ('/upload') ? '#3772FF' : '#FCFCFD' }}>
-            <Link to='upload'><p style={{ color: pathname === ('/upload') ? '#FCFCFD' : '#23262F' }}>Upload</p></Link>
-            </button>
-          <button className="f-sans but-cont">Connect Wallet</button>
+          <button className="f-sans but-upl" style={{ backgroundColor: uploadLiPath.includes(pathname) ? '#3772FF' : '#FCFCFD' }}>
+            <Link to='upload'><p style={{ color: uploadLiPath.includes(pathname) ? '#FCFCFD' : '#23262F' }}>Upload</p></Link>
+          </button>
+          <button className="f-sans but-cont">
+            <Link to="connect-wallet">Connect Wallet</Link>
+          </button>
         </div>
 
         <div className= {!burger ? 'header__burger d-3' : 'header__burger d-3 open'}
