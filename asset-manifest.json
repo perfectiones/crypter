@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/crypter/static/css/main.cac5c999.css",
+    "main.css": "/crypter/static/css/main.c277b551.css",
     "main.js": "/crypter/static/js/main.bb97ffe8.js",
     "static/media/cryptVideo.mp4": "/crypter/static/media/cryptVideo.43bedfabfd8761d41a1d.mp4",
     "static/media/album-item.png": "/crypter/static/media/album-item.efe887b0c7f5904b380d.png",
@@ -29,11 +29,11 @@
     "static/media/arrLeft.svg": "/crypter/static/media/arrLeft.5e1132a9c5a1fd54b48ade2e1045cc3d.svg",
     "static/media/ar.svg": "/crypter/static/media/ar.7fb0c6c2c0d5576b4f0b5dad1794b82c.svg",
     "static/media/accordion-arrow.svg": "/crypter/static/media/accordion-arrow.57298845aa2b68b74416.svg",
-    "main.cac5c999.css.map": "/crypter/static/css/main.cac5c999.css.map",
+    "main.c277b551.css.map": "/crypter/static/css/main.c277b551.css.map",
     "main.bb97ffe8.js.map": "/crypter/static/js/main.bb97ffe8.js.map"
   },
   "entrypoints": [
-    "static/css/main.cac5c999.css",
+    "static/css/main.c277b551.css",
     "static/js/main.bb97ffe8.js"
   ]
 }
