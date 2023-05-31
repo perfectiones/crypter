@@ -124,9 +124,6 @@
       font-size: 40px;
       line-height: 48px;
 
-      text-align: center;
-      letter-spacing: -0.01em;
-
       color: #23262f;
 
       margin-top: 8px;
@@ -180,6 +177,13 @@
 
       height: 100%;
 
+      @media (max-width:991px) {
+        height: 700px;
+      }
+
+      @media (max-width:678px) {
+        height: 400px;
+      }
       video {
         object-fit: fill;
       }

@@ -12,7 +12,6 @@ function VideoControls({
             <div 
                 className="video__controls-play"
                 onClick={handlePlay}
-
                 >
                 {!playing ? "Play" : 'Pause'}</div>
             <div 

@@ -24,6 +24,8 @@ import collSm7 from "../img/main/collect-item7Sm.png";
 import collSm8 from "../img/main/collect-item8Sm.png";
 import collSm9 from "../img/main/collect-item9Sm.png";
 
+import axios from 'axios';
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation, Pagination } from "swiper";
 
@@ -210,6 +212,7 @@ function HomePage(props) {
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           loop={true}
+          spaceBetween={32}
           className="main__album-swiper col-xl-4 col-lg-4 col-12"
         >
           <SwiperSlide>

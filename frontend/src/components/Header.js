@@ -4,32 +4,39 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+
+import bidItem3 from "../img/main/bid-item-3.png";
 
 // Тут массив ссылок, где меняется цвет
-const uploadLiPath = ['/upload', '/connect-wallet', '/upload/create-single', '/faq'];
-
+const uploadLiPath = [
+  "/upload",
+  "/connect-wallet",
+  "/upload/create-single",
+  "/faq",
+];
 
 function Header(props) {
-
   const { pathname } = useLocation();
 
   const [state, setState] = useState({
     burger: false,
-  })
+    notifOpen: false,
+  });
 
-  const{
-    burger
-  } = state
+  const { burger,notifOpen } = state;
 
   const handleBurger = (e) => {
-    setState({...state, burger: !state.burger});
-    
+    setState({ ...state, burger: !state.burger });
+
     props.bodyLock();
-  }
+  };
 
   return (
     <header>
-      <div className="header__wrapper container flex" >
+      <div className="header__wrapper container flex">
         <div className="header__start flex">
           <Link to="/">
             <div className="header__logo flex">
@@ -39,7 +46,6 @@ function Header(props) {
               </div>
             </div>
           </Link>
-            
 
           <nav className="header__nav f-sans d-2-none">
             <ul className="flex">
@@ -78,44 +84,189 @@ function Header(props) {
         </div>
 
         <div className="header__notify d-3-none">
-          <svg
-            width="18"
-            height="19"
-            viewBox="0 0 18 19"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            data-tip="hover on me will keep the tooltip"
+            id="my-anchor-element"
+            onClick={() => setState({ ...state, notifOpen: !state.notifOpen })}
           >
-            <path
-              d="M18 15.0233C18 15.5113 17.6043 15.907 17.1163 15.907H0.88372C0.395655 15.907 0 15.5113 0 15.0233C0 14.5352 0.395656 14.1395 0.883721 14.1395H0.9V7.98088C0.9 3.57288 4.527 0 9 0C13.473 0 17.1 3.57288 17.1 7.98088V14.1395H17.1163C17.6043 14.1395 18 14.5352 18 15.0233ZM2.7 14.1395H15.3V7.98088C15.3 4.5494 12.4794 1.76744 9 1.76744C5.5206 1.76744 2.7 4.5494 2.7 7.98088V14.1395ZM6.97604 17.7558C6.73121 17.2608 7.19772 16.7907 7.75 16.7907H10.25C10.8023 16.7907 11.2688 17.2608 11.024 17.7558C10.9155 17.9751 10.7699 18.1773 10.591 18.3529C10.169 18.7672 9.59674 19 9 19C8.40326 19 7.83097 18.7672 7.40901 18.3529C7.23013 18.1773 7.08449 17.9751 6.97604 17.7558Z"
-              fill="#777E91"
-            />
-          </svg>
+            <svg
+              width="18"
+              height="19"
+              viewBox="0 0 18 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 15.0233C18 15.5113 17.6043 15.907 17.1163 15.907H0.88372C0.395655 15.907 0 15.5113 0 15.0233C0 14.5352 0.395656 14.1395 0.883721 14.1395H0.9V7.98088C0.9 3.57288 4.527 0 9 0C13.473 0 17.1 3.57288 17.1 7.98088V14.1395H17.1163C17.6043 14.1395 18 14.5352 18 15.0233ZM2.7 14.1395H15.3V7.98088C15.3 4.5494 12.4794 1.76744 9 1.76744C5.5206 1.76744 2.7 4.5494 2.7 7.98088V14.1395ZM6.97604 17.7558C6.73121 17.2608 7.19772 16.7907 7.75 16.7907H10.25C10.8023 16.7907 11.2688 17.2608 11.024 17.7558C10.9155 17.9751 10.7699 18.1773 10.591 18.3529C10.169 18.7672 9.59674 19 9 19C8.40326 19 7.83097 18.7672 7.40901 18.3529C7.23013 18.1773 7.08449 17.9751 6.97604 17.7558Z"
+                fill="#777E91"
+              />
+            </svg>
+          </div>
+
+          <ReactTooltip
+            className="extraClass"
+            effect="solid"
+            anchorSelect="#my-anchor-element"
+            openOnClick={true}
+            place="bottom"
+            isOpen={notifOpen}
+            content={
+              <div className="notify__modal">
+                <div className="modal__wrapper">
+                  <div className="notify__title flex justif-ss-betw tex-cen">
+                    <p>Notification</p>
+
+                    <button>See all</button>
+                  </div>
+
+                  <div className="notify__body">
+                    <ul>
+                      <li className="notify__item flex tex-cen">
+                        <img src={bidItem3} alt="" className="item__img" />
+
+                        <div className="item__text">
+                          <div className="title f-pop">
+                            <p>ETH received</p>
+                          </div>
+
+                          <div className="subtitle f-pop">
+                            <p>0.08 ETH recived</p>
+                          </div>
+
+                          <div className="date f-pop">
+                            <p>2 days ago</p>
+                          </div>
+                        </div>
+
+                        <div className="item__status"></div>
+                      </li>
+                      
+                      <li className="notify__item flex tex-cen">
+                        <img src={bidItem3} alt="" className="item__img" />
+
+                        <div className="item__text">
+                          <div className="title f-pop">
+                            <p>ETH received</p>
+                          </div>
+
+                          <div className="subtitle f-pop">
+                            <p>0.08 ETH recived</p>
+                          </div>
+
+                          <div className="date f-pop">
+                            <p>2 days ago</p>
+                          </div>
+                        </div>
+
+                        <div className="item__status"></div>
+                      </li>
+
+                      <li className="notify__item flex tex-cen">
+                        <img src={bidItem3} alt="" className="item__img" />
+
+                        <div className="item__text">
+                          <div className="title f-pop">
+                            <p>ETH received</p>
+                          </div>
+
+                          <div className="subtitle f-pop">
+                            <p>0.08 ETH recived</p>
+                          </div>
+
+                          <div className="date f-pop">
+                            <p>2 days ago</p>
+                          </div>
+                        </div>
+
+                        <div className="item__status"></div>
+                      </li>
+
+                      <li className="notify__item flex tex-cen">
+                        <img src={bidItem3} alt="" className="item__img" />
+
+                        <div className="item__text">
+                          <div className="title f-pop">
+                            <p>ETH received</p>
+                          </div>
+
+                          <div className="subtitle f-pop">
+                            <p>0.08 ETH recived</p>
+                          </div>
+
+                          <div className="date f-pop">
+                            <p>2 days ago</p>
+                          </div>
+                        </div>
+
+                        <div className="item__status"></div>
+                      </li>
+
+                      <li className="notify__item flex tex-cen">
+                        <img src={bidItem3} alt="" className="item__img" />
+
+                        <div className="item__text">
+                          <div className="title f-pop">
+                            <p>ETH received</p>
+                          </div>
+
+                          <div className="subtitle f-pop">
+                            <p>0.08 ETH recived</p>
+                          </div>
+
+                          <div className="date f-pop">
+                            <p>2 days ago</p>
+                          </div>
+                        </div>
+
+                        <div className="item__status"></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            }
+          />
         </div>
         <div className="header__buttons d-3-none">
-          <button className="f-sans but-upl" style={{ backgroundColor: uploadLiPath.includes(pathname) ? '#3772FF' : '#FCFCFD' }}>
-            <Link to='upload'><p style={{ color: uploadLiPath.includes(pathname) ? '#FCFCFD' : '#23262F' }}>Upload</p></Link>
+          <button
+            className="f-sans but-upl"
+            style={{
+              backgroundColor: uploadLiPath.includes(pathname)
+                ? "#3772FF"
+                : "#FCFCFD",
+            }}
+          >
+            <Link to="upload">
+              <p
+                style={{
+                  color: uploadLiPath.includes(pathname)
+                    ? "#FCFCFD"
+                    : "#23262F",
+                }}
+              >
+                Upload
+              </p>
+            </Link>
           </button>
           <button className="f-sans but-cont">
             <Link to="connect-wallet">Connect Wallet</Link>
           </button>
         </div>
 
-        <div className= {!burger ? 'header__burger d-3' : 'header__burger d-3 open'}
+        <div
+          className={!burger ? "header__burger d-3" : "header__burger d-3 open"}
           onClick={handleBurger}
         >
           <span></span>
           <span></span>
         </div>
 
-        <div className="header__mob d-3"
-          style={!burger ? {left: "100%"} : {left: "0"}}
-        >
-          
-        </div>
+        <div
+          className="header__mob d-3"
+          style={!burger ? { left: "100%" } : { left: "0" }}
+        ></div>
       </div>
-
     </header>
-    
   );
 }
 

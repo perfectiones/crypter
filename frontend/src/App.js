@@ -10,6 +10,8 @@ import CreateSingleColl from "./components/CreateSingleColl";
 import Footer from "./components/Footer";
 import ConnectWallet from "./components/сonnectWallet";
 import Faq from './components/Faq';
+import Profile from "./components/Profile";
+import NotFound from "./components/NotFound";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -100,6 +102,13 @@ function App() {
         />
 
         <Route
+          path="/notfound"
+          element={
+            <NotFound/>
+          }
+        />
+
+        <Route
           path="/sandbox"
           element={
             <SandBox 
@@ -107,6 +116,13 @@ function App() {
           }
         />    
 
+        <Route
+          path="/profile"
+          element={
+            <Profile
+            />
+          }
+        /> 
       
       </Routes>
 

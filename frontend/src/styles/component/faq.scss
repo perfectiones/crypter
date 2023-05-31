@@ -2,8 +2,6 @@
     margin-bottom: calc(64px + (108 - 64) * ((100vw - 320px) / (1144 - 320)));
     margin-top: calc(64px + (108 - 64) * ((100vw - 320px) / (1144 - 320)));
 
-    
-
     .faq__title{
         
         margin-bottom: 84px;
@@ -85,6 +83,8 @@
 
     .main__bid {
         
+      margin-top: calc(64px + (108 - 64) * ((100vw - 320px) / (1144 - 320)));
+
         .swiper-button-prev{
             display: none;
         }
